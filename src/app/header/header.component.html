@@ -1,0 +1,117 @@
+<div class="head" [ngClass]="getHeadClass()">
+  <div class="head-content">
+    <div class="head-content-left">
+      <div class="search-container">
+        <div class="normal-search" *ngIf="!canShowSeacrhAsOverlay">
+          <input type="search" class="search" placeholder="Search" />
+          <i class="fa fa-search search-icon"></i>
+        </div>
+        <div *ngIf="canShowSeacrhAsOverlay">
+          <!-- the tamplate appears when we click this button -->
+          <button
+            [cdkMenuTriggerFor]="searchOverlay"
+            class="search-menu-btn ripple"
+          >
+            <i class="fa fa-search search-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="head-content-right">
+      <div class="head-menu">
+        <div class="head-menu-item">
+          <button
+            class="head-menu-item-btn ripple"
+            [cdkMenuTriggerFor]="languageOverlay"
+          >
+            <img
+              [src]="'assets/flags/' + selectedLanguage.flag + '.jpg'"
+              alt="flag"
+              class="flag"
+            />
+          </button>
+          <button class="head-menu-item-btn ripple">
+            <i class="fa fa-expand menu-icon"></i>
+          </button>
+          <button
+            class="head-menu-item-btn ripple"
+            [cdkMenuTriggerFor]="notificationOverlay"
+          >
+            <i class="fa fa-bell menu-icon"></i>
+          </button>
+          <button class="head-menu-item-btn ripple">
+            <i class="fa fa-comment-alt menu-icon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="head-user-avatar-container" [cdkMenuTriggerFor]="userOverlay">
+        <div class="head-user-avatar">
+          <img src="../../assets/user3.jpg" alt="avatar" class="user-avatar" />
+          <div class="circle-indicator pulse"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- this template will be reused using the id #searchOverlay -->
+<ng-template #searchOverlay>
+  <div class="overlay overlay-search overlay-fall" cdkMenu>
+    <input type="search" class="search" placeholder="Search" name="" id="" />
+    <button class="search-btn">
+      <i class="fa fa-search search-icon"></i>
+    </button>
+  </div>
+</ng-template>
+<ng-template #languageOverlay>
+  <div class="overlay overlay-language overlay-fall" cdkMenu>
+    <ul>
+      <li
+        *ngFor="let language of languages"
+        cdkMenuItem
+        (click)="handleSelectedLanguage(language)"
+      >
+        <img [src]="'assets/flags/' + language.flag + '.jpg'" alt="flag" />
+        <span>{{ language.language }}</span>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<ng-template #notificationOverlay>
+  <div class="overlay overlay-notifications overlay-fall" cdkMenu>
+    <ul>
+      <li class="notification-head-container">
+        <div class="notification-head">Notification</div>
+        <span class="view-all-link">
+          <a>View All</a>
+        </span>
+      </li>
+      <li
+        class="notification-message-container"
+        *ngFor="let notification of notifications"
+        cdkMenuItem
+      >
+        <i [ngClass]="notification.icon"></i>
+        <div>
+          <div class="notification-subject">
+            {{ notification.subject }}
+          </div>
+          <p class="notification-description">
+            {{ notification.description }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<ng-template #userOverlay>
+  <div class="overlay overlay-user overlay-fall" cdkMenu>
+    <ul>
+      <li *ngFor="let item of userItems">
+        <a>
+          <i class="icon" [ngClass]="item.icon"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ng-template>

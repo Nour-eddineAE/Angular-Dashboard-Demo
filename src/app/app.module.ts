@@ -12,6 +12,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
+import { HeaderComponent } from './header/header.component';
+
+// import these to uses them in your template
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkMenuModule } from '@angular/cdk/menu';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,15 @@ import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
     StatisticsComponent,
     DashboardComponent,
     SublevelMenuComponent,
+    HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    OverlayModule,
+    CdkMenuModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
