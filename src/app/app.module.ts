@@ -21,6 +21,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { UserTemplateComponent } from './user-template/user-template.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignupComponent,
     UserTemplateComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

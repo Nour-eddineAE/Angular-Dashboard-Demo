@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['../authentication.scss'],
 })
 export class LoginComponent implements OnInit {
-  authenticationFormGroup!: FormGroup; /*data binding entre le formulaire et l'objet authenticationFormGroup */
+  authenticationFormGroup!: FormGroup;
   errorMessage: any;
   innerWidth: number = window.innerWidth;
   constructor(
@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    /*creer un form group dedans la composante typeScript, qui va etre liée au formulaire HTML */
     this.authenticationFormGroup = this.formBuilder.group({
       username: this.formBuilder.control(''),
       password: this.formBuilder.control(''),
@@ -35,10 +34,8 @@ export class LoginComponent implements OnInit {
     let password = this.authenticationFormGroup.value.password;
     this.authenticationService.login(username, password).subscribe({
       next: (appUser) => {
-        /*garder appUser dans le localStorage */
         this.authenticationService.authenticate(appUser).subscribe({
           next: (data) => {
-            /*si tout se passe bien on accède à l'appliation */
             this.router.navigateByUrl('/user');
           },
         });
@@ -52,4 +49,8 @@ export class LoginComponent implements OnInit {
   getClass(): string {
     return this.innerWidth < 845 ? 'form-container-md' : 'form-container';
   }
+
+  // handleResetPassword() {
+  //   // redirect to reset form
+  // }
 }

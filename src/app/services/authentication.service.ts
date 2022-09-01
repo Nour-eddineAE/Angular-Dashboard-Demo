@@ -33,6 +33,7 @@ export class AuthenticationService {
       roles: ['user', 'admin'],
     });
   }
+
   public login(username: string, password: string): Observable<AppUser> {
     let appUser = this.users.find((user) => user.username === username);
     if (!appUser) {
@@ -43,9 +44,10 @@ export class AuthenticationService {
     }
     return of(appUser);
   }
+
   public authenticate(appUser: AppUser): Observable<boolean> {
     this.authenticatedUser = appUser;
-    /*creer un stockage local pour ne pas oubliger l'utiliasteur à saisir ses données à chaque fois */
+    localStorage.setItem('loggedIn', 'true');
     localStorage.setItem(
       'authenticatedUser',
       JSON.stringify({
@@ -56,18 +58,22 @@ export class AuthenticationService {
     );
     return of(true);
   }
+
   public hasRole(role: string): boolean {
     return this.authenticatedUser!.roles.includes(role);
-    /*includes retourne soit boolean soit undefined, pour l'eviter on ajoute le pt d'exclamation*/
   }
+
   public isAuthenticated(): boolean {
-    return this.authenticatedUser != undefined;
+    return JSON.parse(localStorage.getItem('loggedIn') || 'false');
   }
+
   public Logout(): Observable<boolean> {
     this.authenticatedUser = undefined;
     localStorage.removeItem('authenticatedUser');
+    localStorage.removeItem('loggedIn');
     return of(true);
   }
+
   public addUser(user: AppUser) {
     this.users.push(user);
   }

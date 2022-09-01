@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
     if (item.label === 'Logout') {
       this.authenticationService.Logout().subscribe({
         next: (data) => {
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('authentication/login');
         },
       });
     }

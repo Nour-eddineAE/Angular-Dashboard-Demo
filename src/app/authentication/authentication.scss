@@ -23,6 +23,10 @@
       width: 94%;
       margin: 0;
       max-width: 500px;
+
+      .form-label {
+        
+      }
     }
 
     .col-left {
@@ -92,10 +96,22 @@
 
 .form-body {
   .form-fields {
-    
+      
+    .form-label-container {
+      display: flex;
+      justify-content: center;
+
+      .form-label {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    }
+
     .form-item {
       position: relative;
       margin-bottom: 1rem;
+
+      
       .form-input {
         height: 3rem;
         width: 100%;
@@ -116,6 +132,7 @@
         left: 0.9rem;
         top: 0.9rem;
       }
+
     }
   }
 
@@ -124,12 +141,12 @@
     display: flex;
     justify-content: center;
     margin-bottom: .5rem;
-    .form-link {
-      text-decoration: none;
-      color: #8d96ec;
-    }
   }
 
+  .form-link {
+    text-decoration: none;
+    color: #8d96ec;
+  }
 
   .form-button-container {
     // margin-bottom: 2rem;
@@ -163,4 +180,13 @@
   }
 }
 
+
+.resend-link {
+  display: flex;
+  justify-content: center;
+  margin: .5rem auto;
+  .form-link {
+    cursor: pointer;
+  }
+}
   
