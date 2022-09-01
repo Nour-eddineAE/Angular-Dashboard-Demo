@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -11,12 +12,10 @@ import { SettingsComponent } from './settings/settings.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { UserTemplateComponent } from './user-template/user-template.component';
 
+let defaultRoute: Route = AppComponent.getDefaultRoute();
+
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'authentication',
-    pathMatch: 'full',
-  },
+  defaultRoute,
   {
     path: 'authentication',
     children: [
