@@ -1,6 +1,9 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { languages, notifications, userItems } from './header-data';
-import { Language } from './helper.header';
+import { Language } from '../model/header.model';
+import { UserItem } from '../model/user.model';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +19,10 @@ export class HeaderComponent implements OnInit {
   languages: Language[] = languages;
   notifications = notifications;
   userItems = userItems;
-  constructor() {}
+  constructor(
+    public authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -50,5 +56,14 @@ export class HeaderComponent implements OnInit {
 
   handleSelectedLanguage(language: Language): void {
     this.selectedLanguage = language;
+  }
+  handleLogout(item: UserItem) {
+    if (item.label === 'Logout') {
+      this.authenticationService.Logout().subscribe({
+        next: (data) => {
+          this.router.navigateByUrl('/login');
+        },
+      });
+    }
   }
 }

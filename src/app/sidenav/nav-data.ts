@@ -1,4 +1,4 @@
-import { INavbarData } from './helper';
+import { INavbarData } from '../model/sidenav.model';
 
 export const navbarData: INavbarData[] = [
   {

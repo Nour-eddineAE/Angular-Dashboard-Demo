@@ -1,4 +1,5 @@
-import { Language } from './helper.header';
+import { Language } from '../model/header.model';
+import { UserItem } from '../model/user.model';
 
 export const languages: Language[] = [
   {
@@ -41,7 +42,7 @@ export const notifications = [
   },
 ];
 
-export const userItems = [
+export const userItems: UserItem[] = [
   {
     icon: 'fa fa-user',
     label: 'Profile',

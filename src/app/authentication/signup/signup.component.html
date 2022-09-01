@@ -1,0 +1,60 @@
+<div class="form-container" [ngClass]="getClass()">
+  <div class="form-background">
+    <img [src]="'assets/login/bg.svg'" />
+  </div>
+  <div class="form-window-row">
+    <div class="col-left">
+      <img [src]="'assets/login/signin.svg'" class="form-image" />
+    </div>
+    <div class="col-right">
+      <div class="avatar">
+        <img [src]="'assets/avatar.svg'" alt="" />
+      </div>
+      <h5 class="form-title">Create a new account</h5>
+      <form
+        [formGroup]="newUserFormGroup"
+        (ngSubmit)="handleCreateAccount()"
+        class="form-body"
+      >
+        <div class="form-fields">
+          <div class="form-item">
+            <input
+              type="text"
+              formControlName="email"
+              class="form-input"
+              placeholder="Email address"
+            />
+            <i class="fa fa-envelope input-icon"></i>
+          </div>
+          <div class="form-item">
+            <input
+              type="text"
+              formControlName="username"
+              class="form-input"
+              placeholder="Username"
+            />
+            <i class="fa fa-user input-icon"></i>
+          </div>
+          <div class="form-item">
+            <input
+              type="password"
+              formControlName="password"
+              class="form-input"
+              placeholder="Password"
+            />
+            <i class="fa fa-lock input-icon"></i>
+          </div>
+        </div>
+        <div class="form-action">
+          Already signed up?
+          <a routerLink="/authentication/login" class="form-link"
+            >Log in <i class="fa fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="form-button-container">
+          <button class="form-button" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

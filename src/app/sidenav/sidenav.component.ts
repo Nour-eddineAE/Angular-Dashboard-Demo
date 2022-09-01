@@ -13,7 +13,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { fadeInOut, INavbarData } from './helper';
+import { fadeInOut, INavbarData } from '../model/sidenav.model';
 import { navbarData } from './nav-data';
 
 interface SideNavToggle {

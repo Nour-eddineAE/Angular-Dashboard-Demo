@@ -17,6 +17,10 @@ import { HeaderComponent } from './header/header.component';
 // import these to uses them in your template
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { UserTemplateComponent } from './user-template/user-template.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     DashboardComponent,
     SublevelMenuComponent,
     HeaderComponent,
+    LoginComponent,
+    SignupComponent,
+    UserTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +44,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     BrowserAnimationsModule,
     OverlayModule,
     CdkMenuModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

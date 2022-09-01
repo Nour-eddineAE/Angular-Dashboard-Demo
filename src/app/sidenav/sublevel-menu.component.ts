@@ -7,7 +7,7 @@ import {
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { fadeInOut, INavbarData } from './helper';
+import { fadeInOut, INavbarData } from '../model/sidenav.model';
 
 @Component({
   selector: 'app-sublevel-menu',
