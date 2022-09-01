@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  styleUrls: ['../authentication.scss'],
 })
 export class SignupComponent implements OnInit {
   newUserFormGroup!: FormGroup;

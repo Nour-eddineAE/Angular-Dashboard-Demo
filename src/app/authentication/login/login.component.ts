@@ -6,7 +6,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['../authentication.scss'],
 })
 export class LoginComponent implements OnInit {
   authenticationFormGroup!: FormGroup; /*data binding entre le formulaire et l'objet authenticationFormGroup */
